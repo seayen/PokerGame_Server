@@ -1,0 +1,105 @@
+1일
+1.자바 Serversocket 클래스를 이용한 서버-클라이언트 구현
+2.서버소켓 공부
+
+	서버 소켓
+		1) 서버소켓 생성
+		ServerSocket sv = new ServerSocket(port);
+		
+		2) 클라이언트 접속 대기
+		Socket sk = serverSocket.accept();
+		
+		3) 데이터 송수신을 위한 input/output 스트림 생성
+		InputStream in = sk.getInputStream();
+		OutputStream out = sk.getOutputStream();
+		
+		4) input Stream
+		byte[] = inputdata = new byte[100];
+		int lenght = in.read(inputData);
+		String inputMessage = new String(inputData,0,lenght)
+		
+		5) output Stream
+		String outputMessage = "Message";
+		out.write(outputMessage.GetBytes());
+		out.flush();
+		
+		6) 통신 종료
+		sk.close();
+		sv.close();
+
+
+	클라이언트 소켓
+	
+		1) 클라이언트 서버 접속
+		Socket sk = new Socket("127.0.0.1", port);
+		
+		2) 스트림 생성
+		InputStream in = sk.getInputStream();
+		OutputStream out = sk.getOutputStream();
+		
+		3) input Stream
+		byte[] = inputdata = new byte[100];
+		int lenght = in.read(inputData);
+		String inputMessage = new String(inputData,0,lenght)
+		
+		4) output Stream
+		String outputMessage = "Message";
+		out.write(outputMessage.GetBytes());
+		out.flush();
+	
+3. 다중 접속하려면 쓰레드 이용 필요
+4. 쓰레드 공부
+	
+	Thread(Runnable r, String s);
+		sleep(long mSec)
+		void getName() // 이름 설정
+		String getName()
+		
+		boolean isAlive()
+		int getPriority()
+		void setPriority()
+		
+		void start() // run 메소드 호출
+		void join() //쓰레드가 끝날때까지 대기.?
+		
+		void run()
+		void suspend() //일시정지
+		void resume() //다시시작
+		void yield() //준비상태
+	
+	
+	
+데몬 쓰레드
+	setDeamon(true);
+	
+	synchronized(객체명)
+	{
+	}
+
+	
+-------------------------------------------------------------------------
+5. MainServer
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------
+3일
+메인서버 - 클라이언트 (연결)
+
+메인서버 -> 채널서버 -> 게임서버 (User 클래스전달)
+
+라는 구조로 설계
+
+---------------------------------------------------------------------------------
+4일
+
+구체적인 구조 설계
+
+메인 서버
+
